@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.mapstruct.MapperConfig;
 
 @MapperConfig(uses = JpaMapper.class)
-public interface BaseReadMapper<T, GETDTO, USER extends BaseUser> extends TargetMapper<T, USER> {
+public interface BaseReadMapper<ENTITY, GETDTO, USER extends BaseUser> extends TargetMapper<ENTITY, USER> {
 
   GETDTO toDto(T entity);
 
   @Override
   @SuppressWarnings("unchecked")
-  default <TargetDTO extends Serializable> TargetDTO toTargetDto(T entity, Class<TargetDTO> targetClass, Optional<USER> user) {
+  default <TargetDTO extends Serializable> TargetDTO toTargetDto(ENTITY entity, Class<TargetDTO> targetClass, Optional<USER> user) {
     return (TargetDTO) toDto(entity);
   }
 }
