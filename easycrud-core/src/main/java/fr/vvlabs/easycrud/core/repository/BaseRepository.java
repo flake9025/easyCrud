@@ -5,6 +5,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 @NoRepositoryBean
-public interface BaseRepository<T, ID> extends JpaRepository<T, ID>, PagingAndSortingRepository<T, ID> {
+public interface BaseRepository<ENTITY, ID> extends JpaRepository<ENTITY, ID>, PagingAndSortingRepository<ENTITY, ID> {
 
 }
